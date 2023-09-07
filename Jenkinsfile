@@ -9,7 +9,7 @@ pipeline {
             }
         stage( 'Build') {
             steps {
-				bat ".\mvnw clean compile"
+				bat "mvnw clean "
             }
 			
 			}
@@ -17,14 +17,12 @@ pipeline {
 		
 		
             steps {
-				bat ".\mvnw test"
-            }
-            post {
-                always{
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
-                }
+				bat "mvnw test"
             }
         }
+	    Stage('Compile'){
+		    steps{
+			    bat "mvn comile"
+		    }}
     }
 }
