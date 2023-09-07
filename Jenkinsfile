@@ -20,7 +20,7 @@ pipeline {
 				bat "mvnw test"
             }
         }
-	    Stage('Compile'){
+	    stage('Compile'){
 		    steps{
 			    bat "mvn comile"
 		    }}
