@@ -5,11 +5,11 @@ pipeline {
         
         stage( 'Build') {
             steps {
-				bat 'make' 
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+		    withMaven {
+          sh "mvn clean verify"
+        }
             }
-			
-			}
+	}
 		stage('Test') {
 		
 		
